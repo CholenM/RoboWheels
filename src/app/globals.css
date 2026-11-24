@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-sans), "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: var(--font-display), "Fredoka", system-ui, sans-serif;
+  --color-rw-navy: #0B153C;
+  --color-rw-sky: #2EB5F4;
+  --color-rw-amber: #FBBF49;
+  --color-rw-coral: #E6552E;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes confettiDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px) rotate(0deg) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(80px) rotate(240deg) scale(1);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 3.6s ease-in-out infinite;
+}
+
+.animate-pop-in {
+  animation: popIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-confetti {
+  animation: confettiDrop 2.4s ease-out infinite;
+}
+
+.font-display {
+  font-family: var(--font-display), "Fredoka", system-ui, sans-serif;
+}
