@@ -26,8 +26,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fredoka.variable} ${plusJakarta.variable}`}>
-      <body className="min-h-screen font-sans antialiased text-[#0B153C] bg-[#FFFBF5] selection:bg-amber-200 selection:text-[#0B153C]">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${fredoka.variable} ${plusJakarta.variable}`}
+    >
+      <body
+        suppressHydrationWarning
+        className="min-h-screen font-sans antialiased text-[#0B153C] bg-[#FFFBF5] selection:bg-amber-200 selection:text-[#0B153C]"
+      >
         {children}
       </body>
     </html>

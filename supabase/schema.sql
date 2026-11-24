@@ -17,7 +17,12 @@ create table if not exists public.evaluations (
 -- Enable Row Level Security (RLS)
 alter table public.evaluations enable row level security;
 
+-- Ensure anon and authenticated roles have table privileges
+grant usage on schema public to anon, authenticated;
+grant select, insert on table public.evaluations to anon, authenticated;
+
 -- Allow anyone at the booth to submit an evaluation
+drop policy if exists "Allow public inserts" on public.evaluations;
 create policy "Allow public inserts"
   on public.evaluations
   for insert
@@ -25,6 +30,7 @@ create policy "Allow public inserts"
   with check (true);
 
 -- Allow reading evaluations for the Records Dashboard & CSV Export
+drop policy if exists "Allow public reads" on public.evaluations;
 create policy "Allow public reads"
   on public.evaluations
   for select

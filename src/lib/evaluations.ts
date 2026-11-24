@@ -78,7 +78,10 @@ export async function submitEvaluation(
     if (!error && data) {
       return { record: data as EvaluationRecord, storage: "supabase" };
     }
-    console.error("Supabase insert failed, falling back to localStorage:", error);
+    const errText = error
+      ? `${error.code ?? "ERR"}: ${error.message ?? "Unknown error"}${error.details ? ` (${error.details})` : ""}${error.hint ? ` | Hint: ${error.hint}` : ""}`
+      : "No data returned from Supabase insert";
+    console.warn(`Supabase insert failed, falling back to localStorage -> ${errText}`);
   }
 
   // Local fallback so the kiosk never loses a response even without Supabase keys or Wi-Fi

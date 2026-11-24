@@ -200,18 +200,18 @@ export function EvaluationKiosk() {
                     onClick={() => handleSelectLanguage(lang.code)}
                     className={`group relative overflow-hidden rounded-3xl bg-white border-2 ${lang.borderClass} p-6 text-left shadow-sm hover:shadow-xl hover:-translate-y-1 active:scale-[0.98] transition-all cursor-pointer`}
                   >
-                    <div
+                    <span
                       className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br ${lang.gradientClass} text-white font-display font-bold text-lg shadow-md mb-4 group-hover:scale-110 transition-transform`}
                     >
                       {lang.badge}
-                    </div>
-                    <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#0B153C] flex items-center justify-between">
+                    </span>
+                    <span className="font-display text-2xl sm:text-3xl font-bold text-[#0B153C] flex items-center justify-between">
                       <span>{lang.nativeLabel}</span>
                       <ArrowRight className="w-6 h-6 text-slate-400 group-hover:text-[#0B153C] group-hover:translate-x-1 transition-all" />
-                    </h2>
-                    <p className="mt-1.5 text-sm text-slate-600 font-medium">
+                    </span>
+                    <span className="block mt-1.5 text-sm text-slate-600 font-medium">
                       {lang.subtitle}
-                    </p>
+                    </span>
                   </button>
                 ))}
               </div>
